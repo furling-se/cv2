@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoltan Györfi | Cloud & Cybersecurity Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: url('technology_cloud.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        header button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #008cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        header button:hover {
+            background-color: #005f7f;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(100px);
+            transition: transform 0.5s ease;
+        }
+        .container.visible {
+            transform: translateY(0);
+        }
+        .contact-info {
+            background: #e9f5fb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+        .contact-info:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+            border: 2px solid #008cba;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .contact-info img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        section {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        h2 {
+            color: #008cba;
+            border-bottom: 2px solid #008cba;
+            padding-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+        h2:hover {
+            color: #005f7f;
+            transform: scale(1.05) rotate(-1deg);
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 0;
+            height: 2px;
+            background-color: #008cba;
+            transition: width 0.3s ease;
+        }
+        h2:hover::after {
+            width: 100%;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible ul {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #008cba;
+        }
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .timeline-entry.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-entry:hover {
+            transform: translateX(0) scale(1.05);
+            background: rgba(0, 140, 186, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #008cba;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        button.scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #008cba;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none;
+        }
+        button.scroll-top:hover {
+            background-color: #005f7f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Zoltan Györfi</h1>
+    <p>Cloud Deployment Engineer | Cybersecurity Enthusiast</p>
+    <button onclick="scrollToContent()">Learn More</button>
+</header>
+
+<div class="container" id="content">
+    <section class="contact-info">
+        <img src="portrait.jpg" alt="Zoltan Györfi">
+        <div>
+            <p><strong>Email:</strong> furling@gmail.com</p>
+            <p><strong>Phone:</strong> +46 725 838761</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/zoltangyorfi" target="_blank">linkedin.com/in/zoltangyorfi</a></p>
+            <p><strong>Residence:</strong> Solna, Sweden</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>About Me</h2>
+        <p>Team player with a proven track record in Solution Support, Cloud Deployment, and Software Verification. My experience managing technical solutions, along with curiosity, flexibility, and the ability to collaborate have enabled me to consistently deliver exceptional results. I am passionate about continuous improvement and committed to making an impact on every project. My background in Telecommunications and customer-focused approach allow me to effectively translate key requirements into actionable plans. With attention to detail, results-oriented focus, and commitment to excellence, I ensure successful project outcomes. My dedication to continuous learning and personal growth, combined with my analytical thinking, positions me as a valuable asset to any team. Growing interest in Cybersecurity and AI further enhances my ability to contribute to emerging tech projects. Having worked in various roles, I excel in communication, teamwork, and problem-solving with a solution-driven mindset.</p>
+    </section>
+
+    <section>
+        <h2>Technical Exposure</h2>
+        <ul>
+            <li><strong>HW Platforms:</strong> Extreme, Juniper, Pluribus, HP, Dell Rxxx, HDS, SDI2/3, BSP, Nexenta, Quanta</li>
+            <li><strong>SW Platforms:</strong> CEE, CCD, VmWare, Linux, Solaris</li>
+            <li><strong>Protocols:</strong> IP, SIP, Diameter, H248, LDAP, BGP, IGRP, OSPF, BFD, STP, LACP</li>
+            <li><strong>Other:</strong> RSTP, ECMP, MPLS, VXLAN, VRRP, VLAG, trunking</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Leadership and Mentoring Exposure</h2>
+        <p>Coached 6 new colleagues, enabling them to work independently on all required fields of the project. Provided hands-on training and ongoing support to ensure a smooth transition into their roles. Worked as a Single Point of Contact (SPOC) in the Applications and Gateways Domain, coordinating the daily work of 4 team members. Facilitated communication between team members and other departments to ensure project alignment and timely completion.</p>
+    </section>
+
+    <section>
+        <h2>Career History</h2>
+        <div class="timeline">
+            <div class="timeline-entry">
+                <h3>Senior Cloud Deployment and Support Engineer – Ericsson AB, Sweden (April 2023 - Present)</h3>
+                <ul>
+                    <li>Handling Customer Support tickets and providing technical support to Ericsson Internal and Telecom Operators worldwide.</li>
+                    <li>Proficiently troubleshoot issues in Design and Customer networks.</li>
+                    <li>Provide expert assistance during CNIS and NFVi deployments.</li>
+                    <li>Collaborating with key customers, with a specific focus on CCD & SDI.</li>
+                    <li>Hands-on knowledge of various SDI products (2.x and 3.x), including deployment, integrations, and upgrades.</li>
+                    <li>Influencing the design of current and future cloud releases.</li>
+                    <li>Proficient in designing and implementing L2/L3 network fabrics for efficient data communication.</li>
+                </ul>
+            </div>
+            <div class="timeline-entry">
+                <h3>IMS Solution Support Engineer – Ericsson AB, Sweden (November 2014 - April 2023)</h3>
+                <ul>
+                    <li>Handled Jira and Customer Support Tickets, understanding Customer needs.</li>
+                    <li>Provided technical support for Telecom Operators worldwide.</li>
+                    <li>Troubleshooting IMS Networks, writing Trouble Reports, Fault Isolation, and System Recovery.</li>
+                    <li>Participate in high-stress situations, handling critical customer escalations with tight deadlines.</li>
+                    <li>Proficient in using various customer support tools, including SMS, TTX, Metis, MHweb, CSDP, Jira.</li>
+                    <li>Expertise in IP, SIP, Diameter, H248 protocols, and vIMS technologies.</li>
+                    <li>Emergency handling, remote and on-site support for IMS networks.</li>
+                    <li>Wrote MOPs, support, and troubleshooting documentation for on-site engineers and customers, resulting in fewer emergency requests.</li>
+                </ul>
+            </div>
+            <div class="timeline-entry">
+                <h3>Software Verification Engineer – Ericsson Hungary, Budapest (February 2011 - November 2014)</h3>
+                <ul>
+                    <li>Verify software packages and upgrade procedures.</li>
+                    <li>Setup test environments, implement automated testing methods.</li>
+                    <li>Worked on Linux-based systems, writing shell scripts.</li>
+                    <li>Stability and Overload testing of IMS networks with TitanSim.</li>
+                    <li>Write internal test documentation, troubleshooting documentation.</li>
+                    <li>Implement automated testing methods with TTCN-3.</li>
+                    <li>Expertise in Project planning, design, implementation, and execution.</li>
+                    <li>Expertise in Functional, System, Maintenance, Unit, Regression, Manual, Automated, and Stability Tests.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <p><strong>BSc. of Technical Computer Engineering, Specialization in IT System Engineer</strong><br>Obuda University, John von Neumann Faculty of Informatics (Hungary, 2010)</p>
+    </section>
+
+    <section>
+        <h2>Certifications & Trainings</h2>
+        <ul>
+            <li>AWS Identity and Access Management (Whizlabs), AWS Identity and Access Management Foundations (Udemy)</li>
+            <li>Fortinet Certified Fundamentals Cybersecurity, Fortinet Certified Associate Cybersecurity</li>
+            <li>Elements of AI: Introduction to AI</li>
+            <li>Cloud NFVi, Cloud Native, VoLTE e2e, Openstack, CEE, Cloud trainings</li>
+            <li>ISTQB-CTFL Tester training, TTCN-3 Tester training, Linux Troubleshooting</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Achievements</h2>
+        <ul>
+            <li>Worked with more than 100 Customers worldwide.</li>
+            <li>Solved more than 250 Customer tickets, leading to high customer satisfaction.</li>
+            <li>Reported more than 200 trouble reports which helped increase software quality.</li>
+            <li>Tested more than 200 software package updates for Ericsson networks.</li>
+            <li>Wrote MOPs, support, and troubleshooting documentation for on-site engineers and customers, resulting in fewer emergency requests.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Languages</h2>
+        <ul>
+            <li>English (Fluent)</li>
+            <li>Swedish (Advanced)</li>
+            <li>Hungarian (Native)</li>
+        </ul>
+    </section>
+</div>
+
+<button class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<footer>
+    <p>&copy; 2024 Zoltan Györfi</p>
+</footer>
+
+<script>
+    // Scroll to content animation
+    function scrollToContent() {
+        document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Scroll to top button
+    window.onscroll = function() {
+        const scrollButton = document.querySelector('.scroll-top');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollButton.style.display = 'block';
+        } else {
+            scrollButton.style.display = 'none';
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Reveal elements on scroll
+    function revealOnScroll() {
+        const timelineEntries = document.querySelectorAll('.timeline-entry');
+        const container = document.querySelector('.container');
+        const sections = document.querySelectorAll('section');
+
+        if (container.getBoundingClientRect().top < window.innerHeight) {
+            container.classList.add('visible');
+        }
+
+        timelineEntries.forEach(entry => {
+            if (entry.getBoundingClientRect().top < window.innerHeight) {
+                entry.classList.add('visible');
+            }
+        });
+
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top < window.innerHeight) {
+                section.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>
